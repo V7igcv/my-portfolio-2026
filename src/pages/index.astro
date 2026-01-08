@@ -1,11 +1,413 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import '../styles/global.css';
 ---
 
 <Layout>
-	<Welcome />
+	<nav class="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
+		<div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+			<span class="font-bold text-xl tracking-tighter text-orange-600">Ian Gabriel Villame</span>
+			<div class="space-x-8 text-sm font-medium text-gray-600">
+				<a href="#about" class="hover:text-orange-600 transition-colors">About</a>
+				<a href="#skills" class="hover:text-orange-600 transition-colors">Skills</a>
+				<a href="#education" class="hover:text-orange-600 transition-colors">Education</a>
+				<a href="#projects" class="hover:text-orange-600 transition-colors">Projects</a>
+				<a href="#contact" class="hover:text-orange-600 transition-colors">Contact</a>
+			</div>
+		</div>
+	</nav>
+
+	<main class="max-w-5xl mx-auto px-6 pt-32">
+		
+		<section id="about" class="py-20 mb-10 flex flex-col md:flex-row items-center gap-10">
+			<div class="flex-shrink-0">
+				<div class="w-96 h-96 rounded-full bg-gray-200 border-4 border-orange-100 flex items-center justify-center overflow-hidden shadow-inner">
+					<span class="text-gray-400 italic">Photo</span>
+				</div>
+			</div>
+
+			<div class="flex-1 text-center md:text-left">
+				<h3 class="text-2xl md:text-2xl font-black text-orange-600 mb-2 tracking-tight">Hello, I'm</h3>
+				<h1 class="text-5xl md:text-5xl font-black text-gray-900 mb-6 tracking-tight">Ian Gabriel C. Villame</h1>
+				<p class="text-xl text-gray-600 leading-relaxed">
+					A highly motivated Bachelor of Science in Information Technology student with a solid foundation in project management, web development, system analysis, technical documentation, and professional presentations,
+					committed to delivering efficient, well-structured IT solutions through a detail-oriented and analytical approach.
+				</p>
+				<div class="mt-8 flex flex-wrap justify-center md:justify-start gap-4">
+					<a href="#projects" class="px-8 py-3 bg-orange-600 text-white font-bold rounded-xl hover:bg-orange-700 hover:-translate-y-1 transition-all">
+						View My Projects
+					</a>
+
+					<a href="#contact" class="px-8 py-3 border-2 border-gray-200 text-gray-700 font-bold rounded-xl hover:border-orange-600 hover:text-orange-600 hover:-translate-y-1 transition-all">
+						Contact Me
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<section id="skills" class="py-20 mb-10 border-t border-gray-100">
+			<h2 class="text-4xl font-bold mb-12 text-gray-900 tracking-tight">Skills & Expertise</h2>
+			
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+				
+				<div class="flex flex-col items-center bg-white p-8 rounded-2xl border-2 border-gray-200 shadow-sm hover:border-orange-200 transition-colors hover:-translate-y-1 transition-all">
+					<div class="w-18 h-18 bg-orange-50 rounded-lg flex items-center justify-center mb-6">
+						<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path fill="currentColor" d="M22 21H2V3h2v16h2v-9h4v9h2V6h4v13h2v-5h4z"/></svg>
+					</div>
+					<h3 class="text-xl font-bold mb-4 text-gray-900">Technical Skills</h3>
+					<div class="flex justify-center flex-wrap gap-2">
+						{['Project Management', 'Business Process Mapping', 'UML Modeling', 'Basic Backend/Frontend', 'Database Management'].map((skill) => (
+							<span class="px-3 py-1 bg-gray-50 text-gray-600 text-md rounded-md border border-gray-200">{skill}</span>
+						))}
+					</div>
+				</div>
+
+				<div class="flex flex-col items-center bg-white p-8 rounded-2xl border-2 border-gray-200 shadow-sm hover:border-orange-200 transition-colors hover:-translate-y-1 transition-all">
+					<div class="w-18 h-18 bg-orange-50 rounded-lg flex items-center justify-center mb-6">
+						<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path fill="currentColor" d="m20 18l2-2V4H2v12l2 2H0v2h24v-2zM4 6h16v10H4z"/></svg>
+					</div>
+					<h3 class="text-xl font-bold mb-4 text-gray-900">Development</h3>
+					<div class="flex justify-center flex-wrap gap-2">
+						{['HTML', 'CSS', 'JavaScript', 'Tailwind CSS', 'PHP', 'MySQL'].map((skill) => (
+							<span class="px-3 py-1 bg-gray-50 text-gray-600 text-md rounded-md border border-gray-200">{skill}</span>
+						))}
+					</div>
+				</div>
+
+				<div class="flex flex-col items-center bg-white p-8 rounded-2xl border-2 border-gray-200 shadow-sm hover:border-orange-200 transition-colors hover:-translate-y-1 transition-all">
+					<div class="w-18 h-18 bg-orange-50 rounded-lg flex items-center justify-center mb-6">
+						<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 640 640"><path fill="currentColor" d="M102.8 57.3c5.4-5.4 13.8-6.2 20.2-2l118.9 79.2c8.9 5.9 14.2 15.9 14.2 26.6v49.6l90.8 90.8c33.3-15 73.9-8.9 101.2 18.5l126.1 126.1c18.7 18.7 18.7 49.1 0 67.9l-60.1 60.1c-18.7 18.7-49.1 18.7-67.9 0L320.1 448c-27.4-27.4-33.5-67.9-18.5-101.2L210.8 256h-49.6c-10.7 0-20.7-5.3-26.6-14.2L55.4 122.9c-4.2-6.3-3.4-14.8 2-20.2zm145 303.5c-6.3 36.9 2.3 75.9 26.2 107.2l-94.9 95c-28.1 28.1-73.7 28.1-101.8 0s-28.1-73.7 0-101.8l135.4-135.5l35.2 35.1zM416.1 64c20.1 0 39.4 3.7 57.1 10.5c10 3.8 11.8 16.5 4.3 24.1l-56.7 56.7c-3 3-4.7 7.1-4.7 11.3V208c0 8.8 7.2 16 16 16h41.4c4.2 0 8.3-1.7 11.3-4.7l56.7-56.7c7.6-7.5 20.3-5.7 24.1 4.3c6.8 17.7 10.5 37 10.5 57.1c0 43.2-17.2 82.3-45 111.1L482 286c-33.1-33-78.5-45.7-121.1-38.4l-56.8-56.8v-29.7l-.2-5c-.8-12.4-4.4-24.3-10.5-34.9c29.4-35 73.4-57.2 122.7-57.3z"/></svg>
+					</div>
+					<h3 class="text-xl font-bold mb-4 text-gray-900">Tools & Platforms</h3>
+					<div class="flex justify-center flex-wrap gap-2">
+						{['Canva', 'Figma', 'Microsoft Office', 'VS Code', 'MySQL Workbench', 'Supabase', 'Postman', 'GitHub'].map((skill) => (
+							<span class="px-3 py-1 bg-gray-50 text-gray-600 text-md rounded-md border border-gray-200">{skill}</span>
+						))}
+					</div>
+				</div>
+
+			</div>
+		</section>
+
+		<section id="education" class="py-20 mb-10 border-t border-gray-100">
+			<h2 class="text-4xl font-bold mb-12 text-gray-900 tracking-tight">Education</h2>
+			
+			<div class="space-y-12">
+				<div class="relative pl-8 border-l-2 border-orange-200 group">
+					<div class="absolute w-4 h-4 bg-orange-600 rounded-full -left-[9px] top-1 group-hover:scale-125 transition-transform"></div>
+					
+					<div class="flex flex-col md:flex-row md:justify-between mb-2">
+						<h3 class="text-2xl font-bold text-gray-900">Bicol University College of Science</h3>
+						<span class="text-orange-600 font-bold">2022 — Present</span>
+					</div>
+					<p class="text-lg font-semibold text-gray-700 mb-1">Bachelor of Science in Information Technology (Undergraduate)</p>
+					<p class="text-gray-500 mb-4 text-sm uppercase tracking-wide">Rizal St. Legazpi City, Albay</p>
+					
+					<ul class="space-y-2">
+						<li class="flex items-start gap-2 text-gray-600">
+							<span class="text-orange-500 mt-1">✦</span>
+							<span>Royal Blue Degree Member, Order of the Blue Feather Society (OBFS) | A.Y 2024 - 2025</span>
+						</li>
+						<li class="flex items-start gap-2 text-gray-600">
+							<span class="text-orange-500 mt-1">✦</span>
+							<span>President’s Lister | A.Y 2022 - 2023, A.Y 2024 - 2025</span>
+						</li>
+						<li class="flex items-start gap-2 text-gray-600">
+							<span class="text-orange-500 mt-1">✦</span>
+							<span>Dean’s Lister | A.Y 2023 - 2024</span>
+						</li>
+					</ul>
+				</div>
+
+				<div class="relative pl-8 border-l-2 border-gray-200 group">
+					<div class="absolute w-4 h-4 bg-gray-300 rounded-full -left-[9px] top-1 group-hover:bg-orange-400 transition-colors"></div>
+					
+					<div class="flex flex-col md:flex-row md:justify-between mb-2">
+						<h3 class="text-xl font-bold text-gray-900">Divine Word College of Legazpi</h3>
+						<span class="text-gray-500 font-medium">2020 — 2022</span>
+					</div>
+					<p class="text-gray-700 font-medium">Senior High School - Science, Technology, Engineering & Mathematics</p>
+					<p class="text-gray-500 mb-2 text-sm">Cruzada, Legazpi City, Albay</p>
+					<p class="text-gray-600 italic">Academic excellence award with high honors</p>
+				</div>
+
+				<div class="relative pl-8 border-l-2 border-gray-200 group">
+					<div class="absolute w-4 h-4 bg-gray-300 rounded-full -left-[9px] top-1 group-hover:bg-orange-400 transition-colors"></div>
+					
+					<div class="flex flex-col md:flex-row md:justify-between mb-2">
+						<h3 class="text-xl font-bold text-gray-900">Divine Word College of Legazpi</h3>
+						<span class="text-gray-500 font-medium">2016 — 2020</span>
+					</div>
+					<p class="text-gray-700 font-medium">Junior High School</p>
+					<p class="text-gray-500 mb-2 text-sm">Cruzada, Legazpi City, Albay</p>
+					<p class="text-gray-600 italic">Academic excellence award with high honors</p>
+				</div>
+
+				<div class="relative pl-8 border-l-2 border-gray-200 group">
+					<div class="absolute w-4 h-4 bg-gray-300 rounded-full -left-[9px] top-1 group-hover:bg-orange-400 transition-colors"></div>
+					
+					<div class="flex flex-col md:flex-row md:justify-between mb-2">
+						<h3 class="text-xl font-bold text-gray-900">Bagumbayan Central School</h3>
+						<span class="text-gray-500 font-medium">2010 — 2016</span>
+					</div>
+					<p class="text-gray-700 font-medium">Elementary School</p>
+					<p class="text-gray-500 text-sm font-light italic uppercase tracking-wide">F. Aquende Dr, Legazpi City, Albay</p>
+				</div>
+			</div>
+		</section>
+
+		<section id="projects" class="py-20 mb-10 border-t border-gray-100">
+			<h2 class="text-4xl font-bold mb-12 text-gray-900 tracking-tight">Featured Projects</h2>
+			
+			<div class="flex flex-row grid grid-cols-1 md:grid-cols-2 gap-8">
+				
+				<div class="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-xl transition-all hover:-translate-y-2">
+					<div class="h-56 bg-gray-200 overflow-hidden">
+						<img 
+							src="/e-LegTas.png" 
+							alt="Se-LegTas Dashboard Screenshot" 
+							class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+							onerror="this.style.display='none'" 
+						/>
+						<div class="w-full h-full flex items-center justify-center text-gray-400 italic bg-gray-100">
+							e-LegTas Preview
+						</div>
+					</div>
+					
+					<div class="p-8">
+						<div class="flex gap-2 mb-4">
+							<span class="text-xs font-bold uppercase tracking-widest text-orange-600 bg-orange-50 px-2 py-1 rounded">GIS & Management</span>
+						</div>
+						<h3 class="text-2xl font-bold text-gray-900 mb-1">e-LegTas</h3>
+						<p class="text-sm font-medium text-orange-600 mb-4 font-mono">GIS-Based Evacuation Management System (Project Manager)</p>
+						
+						<p class="text-gray-600 mb-6 text-sm leading-relaxed">
+							Led the development of a GIS-integrated web and mobile ecosystem for Legazpi City's CDRRMO. Replaced manual evacuation tracking with real-time center monitoring, automated DROMIC reporting, and role-based dashboards to streamline inter-agency coordination.
+						</p>
+						
+						<div class="flex flex-wrap gap-2 mb-6">
+							<span class="text-xs font-medium bg-gray-100 text-gray-600 px-3 py-1 rounded-full">React</span>
+							<span class="text-xs font-medium bg-gray-100 text-gray-600 px-3 py-1 rounded-full">Node.js</span>
+							<span class="text-xs font-medium bg-gray-100 text-gray-600 px-3 py-1 rounded-full">Tailwind CSS</span>
+							<span class="text-xs font-medium bg-gray-100 text-gray-600 px-3 py-1 rounded-full">Supabase</span>
+							<span class="text-xs font-medium bg-gray-100 text-gray-600 px-3 py-1 rounded-full">PostgreSQL</span>
+							<span class="text-xs font-medium bg-gray-100 text-gray-600 px-3 py-1 rounded-full">RAD Methodology</span>
+						</div>
+
+						<a href="https://github.com/robby-deving/e-LegTas" target="_blank" class="inline-flex items-center gap-2 text-orange-600 font-bold hover:gap-3 transition-all">
+							View on GitHub
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+						</a>
+					</div>
+				</div>
+
+				<div class="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-xl transition-all hover:-translate-y-2">
+					<div class="h-56 bg-gray-200 overflow-hidden">
+						<img 
+							src="/SQLahan.png" 
+							alt="SQLahan Enrollment System Screenshot" 
+							class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+							onerror="this.style.display='none'" 
+						/>
+						<div class="w-full h-full flex items-center justify-center text-gray-400 italic bg-gray-100">
+							SQLahan Preview
+						</div>
+					</div>
+					
+					<div class="p-8">
+						<div class="flex gap-2 mb-4">
+							<span class="text-xs font-bold uppercase tracking-widest text-orange-600 bg-orange-50 px-2 py-1 rounded">Desktop Application</span>
+						</div>
+						<h3 class="text-2xl font-bold text-gray-900 mb-1">SQLahan</h3>
+						<p class="text-sm font-medium text-orange-600 mb-4 font-mono">Enrollment System (C# / MySQL)</p>
+						
+						<p class="text-gray-600 mb-6 text-sm leading-relaxed">
+							A comprehensive Windows Forms application designed to manage student enrollments, tuition payments, instructors, and schedules. Features automated Excel report generation using Microsoft Office Interop for streamlined administrative tasks.
+						</p>
+						
+						<div class="flex flex-wrap gap-2 mb-6">
+							<span class="text-xs font-medium bg-gray-100 text-gray-600 px-3 py-1 rounded-full">C#</span>
+							<span class="text-xs font-medium bg-gray-100 text-gray-600 px-3 py-1 rounded-full">MySQL</span>
+							<span class="text-xs font-medium bg-gray-100 text-gray-600 px-3 py-1 rounded-full">WinForms</span>
+						</div>
+
+						<a href="https://github.com/V7igcv/IGCV_EnrollmentSystem" target="_blank" class="inline-flex items-center gap-2 text-orange-600 font-bold hover:gap-3 transition-all">
+							View on GitHub
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+						</a>
+					</div>
+				</div>
+
+				<div class="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-xl transition-all hover:-translate-y-2">
+					<div class="h-56 bg-gray-200 overflow-hidden">
+						<img 
+							src="/CodeBread.png" 
+							alt="CodeBread Screenshot" 
+							class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+							onerror="this.style.display='none'" 
+						/>
+						<div class="w-full h-full flex items-center justify-center text-gray-400 italic bg-gray-100">
+							CodeBread Preview
+						</div>
+					</div>
+					
+					<div class="p-8">
+						<div class="flex gap-2 mb-4">
+							<span class="text-xs font-bold uppercase tracking-widest text-orange-600 bg-orange-50 px-2 py-1 rounded">UI/UX Design</span>
+						</div>
+						<h3 class="text-2xl font-bold text-gray-900 mb-1">CodeBread;</h3>
+						<p class="text-sm font-medium text-orange-600 mb-4 font-mono">Online Bakery Shop UI Design (Figma)</p>
+						
+						<p class="text-gray-600 mb-6 text-sm leading-relaxed">
+							Designed a clean, appetizing user interface for a digital bakery. Focused on creating a seamless customer journey from product discovery to checkout, featuring a modern aesthetic, high-quality imagery placement, and intuitive navigation.
+						</p>
+						
+						<div class="flex flex-wrap gap-2 mb-6">
+							<span class="text-xs font-medium bg-gray-100 text-gray-600 px-3 py-1 rounded-full">Figma</span>
+							<span class="text-xs font-medium bg-gray-100 text-gray-600 px-3 py-1 rounded-full">Prototyping</span>
+						</div>
+
+						<a href="https://www.figma.com/proto/JgZg53GoMDRnMxIqulB2VV/HCI-FINAL-PROJECT?node-id=0-1&t=ICOntzvJ5wK1cSIf-1" target="_blank" class="inline-flex items-center gap-2 text-orange-600 font-bold hover:gap-3 transition-all">
+							View on Figma
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+						</a>
+					</div>
+				</div>
+
+				<div class="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-xl transition-all hover:-translate-y-2">
+					<div class="h-56 bg-gray-200 overflow-hidden">
+						<img 
+							src="/OldMan.png" 
+							alt="OldMan Screenshot" 
+							class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+							onerror="this.style.display='none'" 
+						/>
+						<div class="w-full h-full flex items-center justify-center text-gray-400 italic bg-gray-100">
+							The Old Man and the Sea Preview
+						</div>
+					</div>
+					
+					<div class="p-8">
+						<div class="flex gap-2 mb-4">
+							<span class="text-xs font-bold uppercase tracking-widest text-orange-600 bg-orange-50 px-2 py-1 rounded">Web Development</span>
+						</div>
+						<h3 class="text-2xl font-bold text-gray-900 mb-1">Old Man and the Sea Learning Hub</h3>
+						<p class="text-sm font-medium text-orange-600 mb-4 font-mono">Interactive Educational Web App (Collaborative Project)</p>
+						
+						<p class="text-gray-600 mb-6 text-sm leading-relaxed">
+							Developed a kid-friendly, underwater-themed educational platform to help students explore Ernest Hemingway's biography and works. Focused on interactive learning cards, playful CSS animations, and simplified content delivery.
+						</p>
+						
+						<div class="flex flex-wrap gap-2 mb-6">
+							<span class="text-xs font-medium bg-gray-100 text-gray-600 px-3 py-1 rounded-full">React</span>
+							<span class="text-xs font-medium bg-gray-100 text-gray-600 px-3 py-1 rounded-full">Tailwind CSS</span>
+							<span class="text-xs font-medium bg-gray-100 text-gray-600 px-3 py-1 rounded-full">Supabase</span>
+						</div>
+
+						<a href="https://old-man-and-the-sea.vercel.app/#landing" target="_blank" class="inline-flex items-center gap-2 text-orange-600 font-bold hover:gap-3 transition-all">
+							Visit the Website
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+						</a>
+					</div>
+				</div>
+
+			</div>
+		</section>
+
+		<section id="contact" class="py-20 mb-32 border-t border-gray-100">
+			<div class="max-w-4xl mx-auto text-center">
+				<h2 class="text-4xl font-bold mb-4 text-gray-900 tracking-tight">Get In Touch</h2>
+				<p class="text-lg text-gray-600 mb-12">
+					I am eager to apply my technical foundation to collaborative, real-world projects and am currently open to industry partnerships where I can contribute to <span class="text-orange-600 font-semibold">meaningful IT solutions</span>.
+				</p>
+
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left mb-12">
+					
+					<a href="mailto:iangabrielcvillame@gmail.com" class="group p-6 bg-white border border-gray-100 rounded-2xl hover:border-orange-500 transition-all shadow-sm">
+						<div class="flex items-center gap-4">
+							<div class="w-12 h-12 bg-orange-50 text-orange-600 rounded-full flex items-center justify-center group-hover:bg-orange-600 group-hover:text-white transition-colors">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+							</div>
+							<div>
+								<p class="text-sm text-gray-500 font-medium uppercase tracking-wider">Email Me</p>
+								<p class="text-gray-900 font-bold break-all">iangabrielcvillame@gmail.com</p>
+							</div>
+						</div>
+					</a>
+
+					<div class="p-6 bg-white border border-gray-100 rounded-2xl shadow-sm">
+						<div class="flex items-center gap-4">
+							<div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+							</div>
+							<div>
+								<p class="text-sm text-gray-500 font-medium uppercase tracking-wider">Call / SMS</p>
+								<p class="text-gray-900 font-bold">09764758864</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="p-6 bg-white border border-gray-100 rounded-2xl shadow-sm md:col-span-2">
+						<div class="flex items-center gap-4">
+							<div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+							</div>
+							<div>
+								<p class="text-sm text-gray-500 font-medium uppercase tracking-wider">Location</p>
+								<p class="text-gray-900 font-bold text-lg">Purok-4 Brgy. 16 East Washington Drive, Legazpi City, Albay</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="flex justify-center gap-6">
+					<a href="https://github.com/V7igcv" target="_blank" class="flex items-center gap-2 text-gray-600 hover:text-gray-900 font-bold transition-colors">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-4.5a4.5 4.5 0 0 0-1-3 4.8 4.8 0 0 0-1-3.5 4.8 4.8 0 0 0-3.5 1 4.8 4.8 0 0 0-3 0 4.8 4.8 0 0 0-3.5-1 4.8 4.8 0 0 0-1 3.5 4.5 4.5 0 0 0-1 3c0 2.5 3 4.5 6 4.5a4.8 4.8 0 0 0-1 3.5v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+						GitHub
+					</a>
+					<a href="https://www.facebook.com/profile.php?id=100010003148840" target="_blank" class="flex items-center gap-2 text-gray-600 hover:text-blue-600 font-bold transition-colors">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+						Facebook
+					</a>
+				</div>
+			</div>
+		</section>
+
+	</main>
+
+	<button
+	id="to-top-button"
+	onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+	title="Go to top"
+	class="fixed bottom-8 right-8 z-50 hidden p-4 bg-orange-600 text-white rounded-full shadow-2xl hover:bg-orange-700 hover:-translate-y-1 transition-all focus:outline-none"
+	>
+	<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+		<path d="m18 15-6-6-6 6"/>
+	</svg>
+	</button>
+
+	<script is:inline>
+	const toTopButton = document.getElementById("to-top-button");
+
+	window.onscroll = function () {
+		// Show button when scrolled down 400px
+		if (window.scrollY > 400) {
+		toTopButton.classList.remove("hidden");
+		} else {
+		toTopButton.classList.add("hidden");
+		}
+	};
+	</script>
+
+	<footer class="py-12 border-t border-gray-100 text-center text-gray-500 text-sm">
+    	<p>&copy; 2026 Ian Gabriel Villame. Built with Astro & Tailwind CSS.</p>
+	</footer>
+
 </Layout>
+
+<style is:global>
+	/* This makes the scrolling look smooth instead of jumping instantly */
+	html {
+		scroll-behavior: smooth;
+	}
+</style>
